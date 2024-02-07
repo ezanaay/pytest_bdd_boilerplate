@@ -20,7 +20,7 @@ python3 get-pip.py
 1. Clone the repo from git using the following command
 
 ```commandline
-git clone git@github.com:SwellEnergy/gridamp-api-ez.git
+git clone git@github.com:ccezana/pytestbdd-boilerplate.git
 ```
 
 2. Run the following command from your project root directory
