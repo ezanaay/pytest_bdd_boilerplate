@@ -1,0 +1,37 @@
+##api_key = bWdXa1RvMEJjOF9mazNyTWVJZlg6aUF2OWpDcHBTX1NQT2NVWFQ4bm1vZw==
+elasticsearch: &es
+  turn_on: True
+  hosts: [ 'https://2cf5ce6972c54b7cbfa056890399ed0e.us-central1.gcp.cloud.es.io:443' ]
+  api_key: b'gAAAAABltez4ebDmRYTxRTCFbzgA0WZDYA0w2Eve4z6fqEnddh2RICQi-1IAuZiUpm6wkcvChffI9Po9yH7KUQY5Vb7ufPUoXKQrb5GySYIMqvWyxQT0HFQjMsV0Scg0QtjlacOm0U5uuouhmlPRdPCIhAPB3Od4Dw=='
+countries: # same as project directory name
+  QA1:
+    # https://restcountries.com/#api-endpoints-using-this-project
+    countries_api:
+      host: https://restcountries.com/v3.1/
+    log_setting:
+      level: INFO
+      console_out: False
+    elasticsearch:
+      <<: *es
+  QA2:
+    # https://restcountries.com/#api-endpoints-using-this-project
+    countries_api:
+      host: https://restcountries.com/v3.1/
+    log_setting:
+      level: INFO
+      console_out: False
+    elasticsearch:
+      <<: *es
+
+dvdrental: # same as project directory name
+  QA:
+    dvdrental_db:
+      db_name: dvdrental
+      host: localhost
+      username: postgres
+      password: b'gAAAAABlsrEDiIYR6vOwoV0JVSd_82-lAOfyx_aaeUelyRGENcVuyNC60KXugnJJPsD-Jxj7tGp_RW3NsYF4HjuKQWRvvkUcWQ=='
+    log_setting:
+      level: INFO
+      console_out: False
+    elasticsearch:
+      <<: *es

@@ -1,0 +1,5 @@
+proj_secrets.py
+logs/*
+countries/reports/*
+dvdrental/reports/*
+env311
