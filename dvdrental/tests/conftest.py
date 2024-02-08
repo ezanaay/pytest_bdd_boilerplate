@@ -8,7 +8,7 @@ from lib.log import get_logger as log
 logger = log(__name__, settings.LOG_LEVEL, settings.CONSOLE_OUT)
 
 # elasticsearch index
-es_index = 'dvdrental-automation'
+es_index = 'pytestbdd-qa-logs-dvdrental'
 
 pytest_plugins = (
     "config.project",

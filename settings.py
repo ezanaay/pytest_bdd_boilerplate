@@ -9,7 +9,6 @@ from config.project import PROJECT
 from pathlib import Path
 from proj_secrets import keys
 
-
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 project_name = PROJECT['project_name']
 DATA_ROOT = os.path.join(PROJECT_ROOT, project_name, 'tests', 'data')
@@ -49,7 +48,6 @@ log_env_vars = CONFIG_DATA['log_setting']
 LOG_LEVEL = log_env_vars['level'] if 'level' in log_env_vars else LOG_LEVEL
 CONSOLE_OUT = log_env_vars['console_out'] if 'console_out' in log_env_vars else CONSOLE_OUT
 
-
 logger = log(__name__, LOG_LEVEL, CONSOLE_OUT)
 
 logger.info("Program started")
@@ -63,8 +61,9 @@ DECRYPT_KEY = keys[project_name][ENV]
 es = None
 es_config = CONFIG_DATA['elasticsearch']
 
-# if is_docker() and es_config['turn_on']:
-es = Elasticsearch(es_config['hosts'], api_key=decrypt(eval(es_config['api_key']), DECRYPT_KEY))
+if es_config['turn_on']:
+    es = Elasticsearch(es_config['hosts'], api_key=decrypt(eval(es_config['api_key']), DECRYPT_KEY))
+
 
 def get_base_api_data(api_name, end_point, headers={}):
     api_data = CONFIG_DATA[api_name]

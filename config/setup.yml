@@ -1,16 +1,17 @@
-##api_key = bWdXa1RvMEJjOF9mazNyTWVJZlg6aUF2OWpDcHBTX1NQT2NVWFQ4bm1vZw==
 elasticsearch: &es
-  turn_on: True
-  hosts: [ 'https://2cf5ce6972c54b7cbfa056890399ed0e.us-central1.gcp.cloud.es.io:443' ]
-  api_key: b'gAAAAABltez4ebDmRYTxRTCFbzgA0WZDYA0w2Eve4z6fqEnddh2RICQi-1IAuZiUpm6wkcvChffI9Po9yH7KUQY5Vb7ufPUoXKQrb5GySYIMqvWyxQT0HFQjMsV0Scg0QtjlacOm0U5uuouhmlPRdPCIhAPB3Od4Dw=='
+  turn_on: False
+  hosts: [ 'replace_me_with_elasticsearch_host_url' ] ## replace with hostname from 'ElasticSearch basic setup' step # 10  in README.md
+  api_key: 'replace_me_with_encrypted_api_key' ## replace with apikey from 'ElasticSearch basic setup' step #4 in README.md
+log_setting: &log
+  level: INFO
+  console_out: False
 countries: # same as project directory name
   QA1:
     # https://restcountries.com/#api-endpoints-using-this-project
     countries_api:
       host: https://restcountries.com/v3.1/
     log_setting:
-      level: INFO
-      console_out: False
+      <<: *log
     elasticsearch:
       <<: *es
   QA2:
@@ -18,20 +19,17 @@ countries: # same as project directory name
     countries_api:
       host: https://restcountries.com/v3.1/
     log_setting:
-      level: INFO
-      console_out: False
+      <<: *log
     elasticsearch:
       <<: *es
-
 dvdrental: # same as project directory name
-  QA:
+  QA1:
     dvdrental_db:
       db_name: dvdrental
       host: localhost
-      username: postgres
-      password: b'gAAAAABlsrEDiIYR6vOwoV0JVSd_82-lAOfyx_aaeUelyRGENcVuyNC60KXugnJJPsD-Jxj7tGp_RW3NsYF4HjuKQWRvvkUcWQ=='
+      username: 'replace_me_with_db_username' ## From step 4 in README.md 'Connecting to PostgreSQL database server' section
+      password: 'replace_me_with_encrypted_database_password' ## From step 4 in README.md 'Connecting to PostgreSQL database server' section
     log_setting:
-      level: INFO
-      console_out: False
+      <<: *log
     elasticsearch:
       <<: *es

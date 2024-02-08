@@ -2,6 +2,7 @@ from lib.log import get_logger as log
 from settings import LOG_LEVEL, CONSOLE_OUT
 from collections import Counter
 import re
+
 logger = log(__name__, LOG_LEVEL, CONSOLE_OUT)
 
 
@@ -25,7 +26,8 @@ def create_feature_file_tags_mapping(feature_file):
                     feature_file_tags_mapping.update({f'{feature_file}|{scenario_tags_index + 1}': id_tag})
                 else:
                     # Scenario with no test_case_id
-                    feature_file_tags_mapping.update({f'{feature_file}|{scenario_tags_index + 1}': 'none'})
+                    no_tag_index = scenario_tags_index + 1 if scenario_tags else index - 1
+                    feature_file_tags_mapping.update({f'{feature_file}|{no_tag_index}': 'none'})
 
             if line.strip().startswith('Examples:'):  # Scenario Outline Examples data table
                 scenario_outline_file_tag = f'{feature_file}|{scenario_outline_tag_index}'
@@ -123,5 +125,3 @@ def find_missing(lst):
     start = lst[0]
     end = lst[-1]
     return sorted(set(range(start, end + 1)).difference(lst))
-
-
