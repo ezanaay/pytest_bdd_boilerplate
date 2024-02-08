@@ -1,0 +1,13 @@
+common_data: &common
+  method: GET
+  endpoint: 'name/%(name)s'
+get_country_by_name_api:
+  <<: *common
+get_country_by_full_name_api:
+  <<: *common
+  params:
+    fullText: true
+get_countries_by_region_api:
+  <<: *common
+  endpoint: region
+
