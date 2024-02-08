@@ -3,7 +3,7 @@ from common_code.shared_steps.common_conf_helpers import prepare_report, after_s
 from countries.tests.step_defs.common_imports import *
 import pytest
 
-es_index = 'countries-automation'
+es_index = 'pytestbdd-qa-logs-countries'
 
 logger = log.get_logger(__name__, settings.LOG_LEVEL, settings.CONSOLE_OUT)
 
