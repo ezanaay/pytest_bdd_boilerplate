@@ -2,7 +2,7 @@
 
 This project contains initial setup for pytest-bdd automation for api, database and UI(coming soon) tests.
 
-## Python installation (Windows)
+## Python Installation (Windows)
 
 1. Download and install the required Python version
 2. Install pip
@@ -15,7 +15,7 @@ python3 get-pip.py
    are working on) and create virtual environment for the specific version of python
 
 ```shell
- virtualenv -p {path_to_python_exe_file} {venv_name}
+ virtualenv -p {path_to_python_exe_file} {your_venv_name}
 ```
 
 4. Run the flg command to activate the virtual environment
@@ -24,12 +24,12 @@ python3 get-pip.py
 \path\to\env\Scripts\activate
 ```
 
-### Framework installation
+### Framework Installation
 
 1. Clone the repo from git using the following command
 
 ```commandline
-git clone git@github.com:ccezana/pytestbdd-boilerplate.git
+git clone git@github.com:centricconsulting/pytestbdd-boilerplate.git
 ```
 
 2. Run the following command from your project root directory
@@ -38,23 +38,23 @@ git clone git@github.com:ccezana/pytestbdd-boilerplate.git
 poetry install
 ```
 
-## Database testing setup
+## Database Testing Setup
 
-The database used in the test is a sample dvdrental postgres database.
+The database used in the this project is a public sample dvdrental postgres database.
 The sample database is obtained
 from https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/
 
 ### Setting up test database on your local
 
-The sample database .tar file is available in the dvdrental folder.
+The sample database .tar file is available in `dvdrental` folder.
 
 1. Download and install pgAdmin from https://www.pgadmin.org/download/
-#### Connecting to PostgreSQL database server
+#### To connect to PostgreSQL database server
 2. Right-click the Servers node and select Register > Server… menu to create a server
 3. Enter the server name such as Local, and click the Connection tab
 4. Enter the host (localhost if the server is on your local) and password for the postgres user and click the Save button
 5. Click on the Servers node to expand the server. By default, PostgreSQL has a database named postgres
-#### Load dvdrental database
+#### To load dvdrental database
 6. Right-click the Databases and select the Create > Database… menu option.
 7. Enter the database name dvdrental and click the Save button.
    You’ll see the new empty database created under the Databases node.
@@ -66,25 +66,25 @@ The sample database .tar file is available in the dvdrental folder.
 
 For more info refer to https://www.postgresqltutorial.com/postgresql-getting-started/load-postgresql-sample-database/
 
-## API Testing setup
+## API Testing Setup
 
 Api tests are written for a publicly available rest api site https://restcountries.com/#endpoints-name
 
-## ElasticSearch basic setup (Optional)
+## ElasticSearch Basic Setup (Optional)
 
 To integrate elasticsearch reporting and analytics, we have to first setup elasticsearch.
 
 - NOTE: after setting up elasticsearch, you need to set `turn_on` value to `True` in elasticsearch settings
   in `config/setup.yml` file
 
-### Create API key
+### Create API Key
 
 1. Create a free elasticsearch trial account if you don't have one yet
 2. Login to your account and go to Stack Management
 3. Click API Keys menu item under 'Security'
 4. Click on 'Create API key' button to create an api key (Type: Personal API key) and copy and save the key
 
-### Create index
+### Create Index
 
 5. Under 'Data' section click on Index Management
 6. In Index Management click 'Create index'
@@ -106,18 +106,18 @@ To integrate elasticsearch reporting and analytics, we have to first setup elast
 13. Select an Index pattern such as `pytestbdd-qa-*` that matches with the index name you created
 14. Click on 'Save data view to Kibana' button.
 
-### Connecting to Elasticsearch
+### To Connect To Elasticsearch
 
 16. In your project go to `config/setup.yml` file
 17. Modify the corresponding elasticsearch hosts (from step 9) and api_key (from step 4) values - the api key should be
     encrypted (use `lib/encryption.py` to encrypt)
 
-## Create Kibana dashboard (Optional)
+## To Create Kibana Dashboard (Optional)
 
 Follow the detailed instructions
 in https://www.elastic.co/guide/en/kibana/current/create-a-dashboard-of-panels-with-web-server-data.html
 
-## Encrypting passwords and keys
+## To Encrypt Passwords and Keys
 
 1. Generate encryption key using Fernet Key Generator
 
@@ -167,7 +167,7 @@ poetry run pytest countries
 poetry run pytest countries -k "test_case_id_1" 
 ```
 
-## Debugging tests
+## To Debug Tests
 
 1. Type in `breakpoint()` where you would like to debug.
 2. Run the commandline with --pdb switch. For example to debug `test_case_id_1` test case
@@ -178,7 +178,7 @@ poetry run pytest countries -k "test_case_id_1" --pdb
 
 NOTE: Don't forget to remove `breakpoint()` after you complete your debugging.
 
-## Create unique test ids for scenarios
+## To Create Unique testcase ids for Scenarios
 
 Test case id generation utility assigns unique test case ids incrementally for scenarios, scenario outlines and
 examples.
