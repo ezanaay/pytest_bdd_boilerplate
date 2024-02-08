@@ -1,7 +1,7 @@
 elasticsearch: &es
   turn_on: False
-  hosts: [ 'https://b5cec84eb1b142c593a5e487a5094c7e.us-central1.gcp.cloud.es.io:443' ]
-  api_key: b'gAAAAABlxR5RDF5LpTrFZpHtzOGn17RZV223jOiLq5a-Qse2Kr0A2PbGwRSExA4ZkrM5gOc3Oo9N6Q39UAkdrdcPFO_SMn1PtQl0W9x8VaabDVmxcrIvyny5xADzK9uQtUM9Gk0uNeajQEc5ahA9mbHpI3nmytBxIg=='
+  hosts: [ 'replace_me_with_elasticsearch_host_url' ] ## replace with hostname from 'ElasticSearch basic setup' step # 10  in README.md
+  api_key: 'replace_me_with_encrypted_api_key' ## replace with apikey from 'ElasticSearch basic setup' step #4 in README.md
 log_setting: &log
   level: INFO
   console_out: False
@@ -27,8 +27,8 @@ dvdrental: # same as project directory name
     dvdrental_db:
       db_name: dvdrental
       host: localhost
-      username: postgres
-      password: b'gAAAAABlxTDzfnALIK1xc2vYIbUMPlkSUrHhbJ70kHm7RMsLwzSESjSfGqDYykTWHGvZEEgiTdXX7MeWUbxLmKqMqusRDRBF9Q=='
+      username: 'replace_me_with_db_username' ## From step 4 in README.md 'Connecting to PostgreSQL database server' section
+      password: 'replace_me_with_encrypted_database_password' ## From step 4 in README.md 'Connecting to PostgreSQL database server' section
     log_setting:
       <<: *log
     elasticsearch:
