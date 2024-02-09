@@ -124,8 +124,8 @@ in https://www.elastic.co/guide/en/kibana/current/create-a-dashboard-of-panels-w
 ```key = Fernet.generate_key()```
 
 2. Save in proj_secrets.py file under your project root.
+(NOTE: proj_secrets.py should not be checked in to git. (add it in .gitignore))
 
-NOTE: This file should not be checked in to git. (add it in .gitignore)
 ```keys = {'{project_name}}': {'{qa_environment}': {encryption_key}```
 
 where:
@@ -134,12 +134,12 @@ where:
 - qa_environment is QA1 or QA2
 - encryption_key is key generated in step 1
 
-2. Create an encrypted value for a particular password/api_key (`str` in this example) using the key you created in step
-   1
+3. Create an encrypted value for a particular password/api_key (`str` in this example) using the key you created in step
+   2
 
 ```encrypted_str = encrypt(str, key)```
 
-3. Replace the password/api_key in `config/setup.yml` with the encrypted string (`encrypted_str` from step 2)
+4. Replace the password/api_key in `config/setup.yml` with the encrypted string (`encrypted_str` from step 2)
 
 ## Executing Tests
 
