@@ -50,7 +50,7 @@ The sample database .tar file is available in `dvdrental` folder.
 
 1. Download and install pgAdmin from https://www.pgadmin.org/download/
 #### To connect to PostgreSQL database server
-2. Right-click the Servers node and select Register > Server… menu to create a server
+2. Open pgAdmin and right-click the Servers node and select Register > Server… menu to create a server
 3. Enter the server name such as Local, and click the Connection tab
 4. Enter the host (localhost if the server is on your local) and password for the postgres user and click the Save button
 5. Click on the Servers node to expand the server. By default, PostgreSQL has a database named postgres
