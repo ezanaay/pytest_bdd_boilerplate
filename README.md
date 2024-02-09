@@ -4,7 +4,7 @@ This project contains initial setup for pytest-bdd automation for api, database 
 
 ## Python Installation (Windows)
 
-1. Download and install the required Python version
+1. Download and install the required Python version (^3.10)
 2. Install pip
 
 ```shell 
