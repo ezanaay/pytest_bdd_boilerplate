@@ -188,7 +188,7 @@ _For scenarios and scenario outlines_ (test_case_id_1, test_case_id_2, ...).
 _For scenario outline examples_ (test_case_id_2_1, test_case_id_2_2, ...)
 
 ```
-poetry run pytest countries -k "assign_test_case_id"
+poetry run pytest countries -k "assign_unique_test_id"
 ```
 
 ## Logs and Reports
