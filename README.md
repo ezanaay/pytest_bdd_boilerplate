@@ -32,7 +32,12 @@ python3 get-pip.py
 git clone git@github.com:centricconsulting/pytestbdd-boilerplate.git
 ```
 
-2. Run the following command from your project root directory
+2. Install poetry
+   ```
+   pip install poetry
+   ```
+   
+3. Run the following command from your project root directory to install packages
 
 ```commandline
 poetry install
