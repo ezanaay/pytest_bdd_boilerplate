@@ -11,9 +11,6 @@ class InventoryPage(BasePage):
         self.pg_url = f'{CONFIG_DATA["base_url"]}inventory.html'
         super().__init__(driver)
 
-    def check_page_loaded(self):
-        return True if self.find_element(*self.locator.LOGO) else False
-
     def add_product_to_cart(self, product_name):
         loc = list(self.locator.add_to_cart)
         loc[1] = f'add-to-cart-{spinalcase(product_name.lower())}'
