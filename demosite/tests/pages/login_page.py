@@ -23,3 +23,4 @@ class LoginPage(BasePage):
         print(user)
         self.enter_username(user)
         self.enter_password(password)
+        self.click_login_button()
