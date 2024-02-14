@@ -23,7 +23,7 @@ def step_impl(db_name, query_name, query_param, param_name):
 
 
 @then(parsers.parse('I verify that "{query_name}" contains {count:d} db entries'))
-# The other option is to get data from previous step is to include db_result fixture as an arg from the previous step
+# The other option to get data from previous step is to include db_result fixture as an arg from the previous step
 # def verify_count(query_name, count, db_result):
 def verify_count(query_name, count):
     actual_count = len(pytest.test_data[query_name])

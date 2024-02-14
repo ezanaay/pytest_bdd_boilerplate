@@ -105,7 +105,7 @@ def assign_tags_to_examples(feature_files_tags_mapping):
 
         with open(file_name, "r+") as feature:
             lines = feature.readlines()
-            so_test_case_id = [tag for tag in lines[int(so_line_no)].split() if '@test_case_id' in tag][0]
+            so_test_case_id = [tag for tag in lines[int(so_line_no) - 1].split() if '@test_case_id' in tag][0]
             tag_line_no = int(line_no)
 
             if tag_name == 'none_header':  # Scenario Outline header with no 'test_case_id' column name
@@ -125,3 +125,7 @@ def find_missing(lst):
     start = lst[0]
     end = lst[-1]
     return sorted(set(range(start, end + 1)).difference(lst))
+
+
+def is_str_dict_or_list(strng):
+    return (strng.startswith("{") and strng.endswith("}")) or (strng.startswith("[") and strng.endswith("]"))

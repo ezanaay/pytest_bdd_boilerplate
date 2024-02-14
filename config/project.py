@@ -7,6 +7,8 @@ def select_project(args):
         return {'project_name': 'countries', 'default_env': 'QA1'}
     elif re.search(r"(/|')dvdrental(/|')", args):
         return {'project_name': 'dvdrental', 'default_env': 'QA1'}
+    elif re.search(r"(/|')demosite(/|')", args):
+        return {'project_name': 'demosite', 'default_env': 'QA1'}
     else:
         return {'project_name': 'countries', 'default_env': 'QA1'}
 
