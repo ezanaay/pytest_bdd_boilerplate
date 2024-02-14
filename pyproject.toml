@@ -14,7 +14,6 @@ pytest-bdd = "^6.1"
 pyyaml = "^6.0"
 stringcase = "^1.2"
 sttable = "^0.0.1"
-cryptography = "^39.0.1"
 pyhamcrest = "^2.0.4"
 pytest-html = "^3.2.0"
 numpy = "^1.23.5"
@@ -42,6 +41,10 @@ cron-converter = "^1.0.2"
 awscliv2 = "^2.2.0"
 geopy = "^2.3.0"
 pendulum = "^2.1.2"
+selenium = "^4.17.2"
+pytest-splinter = "^3.3.2"
+stere = "^0.31.0"
+cryptography = "^42.0.2"
 
 [build-system]
 requires = ["poetry-core"]

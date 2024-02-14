@@ -1,6 +1,6 @@
 # PyTest BDD Boilerplate
 
-This project contains initial setup for pytest-bdd automation for api, database and UI(coming soon) tests.
+This project contains initial setup for pytest-bdd automation for api, database and UI tests.
 
 ## Python Installation (Windows)
 
@@ -69,6 +69,14 @@ For more info refer to https://www.postgresqltutorial.com/postgresql-getting-sta
 ## API Testing Setup
 
 Api tests are written for a publicly available rest api site https://restcountries.com/#endpoints-name
+
+## UI Testing Setup
+
+UI tests are written for a publicly available sample website https://www.saucedemo.com/
+
+Before you run UI tests in `demosite` project folder, 
+- download chrome driver compatible to your Chrome browser from https://googlechromelabs.github.io/chrome-for-testing/ 
+- unzip the file and save the driver application file in `lib/web_drivers`
 
 ## ElasticSearch Basic Setup (Optional)
 
@@ -193,7 +201,7 @@ poetry run pytest countries -k "assign_unique_test_id"
 
 ## Logs and Reports
 
-NOTE: `project_name` is either `countries` or `dvdrental`
+NOTE: `project_name` is either `countries`, `demosite` or `dvdrental`
 
 ### Logs
 

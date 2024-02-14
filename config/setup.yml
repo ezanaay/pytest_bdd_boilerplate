@@ -33,3 +33,11 @@ dvdrental: # same as project directory name
       <<: *log
     elasticsearch:
       <<: *es
+demosite:
+  QA1:
+    base_url: https://www.saucedemo.com/
+    browser: chrome
+    log_setting:
+      <<: *log
+    elasticsearch:
+      <<: *es
