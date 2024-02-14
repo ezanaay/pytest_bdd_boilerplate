@@ -24,11 +24,3 @@ class LoginPage(BasePage):
         self.enter_username(user)
         self.enter_password(password)
         self.click_login_button()
-    #
-    # def login_with_valid_user(self, user):
-    #     self.login(user)
-    #     return HomePage(self.driver)
-    #
-    # def login_with_in_valid_user(self, user):
-    #     self.login(user)
-    #     return self.find_element(*self.locator.ERROR_MESSAGE).text
