@@ -143,7 +143,7 @@ in https://www.elastic.co/guide/en/kibana/current/create-a-dashboard-of-panels-w
 
 where:
 
-- project_name in this example `countries` or `dvdrental`
+- project_name in this example `countries`, `dvdrental` or `demosite`
 - qa_environment is QA1 or QA2
 - encryption_key is key generated in step 1
 
