@@ -4,7 +4,7 @@ from datetime import datetime
 
 import pytest
 
-from lib.api_util.data_helper import generate_vars
+from lib.api_util.data_helper import generate_vars, get_yaml_test_data
 from lib.log import get_logger as log
 import settings
 from settings import LOG_LEVEL, CONSOLE_OUT
@@ -14,6 +14,7 @@ logger = log(__name__, LOG_LEVEL, CONSOLE_OUT)
 """
 A collection of conftest helper methods and fixtures
 """
+
 
 def before_scenario_tasks(scenario):
     """
@@ -25,7 +26,8 @@ def before_scenario_tasks(scenario):
     pytest.scenario_tags = [tag.strip() for tag in scenario.tags]
     logger.info(f"Started scenario {scenario.name}.")
     if 'skip' in pytest.scenario_tags: pytest.skip(reason=f"{scenario.name} Marked with Skip tag")
-    pytest.test_data = {'dynamic_vars': generate_vars(), 'api_data_with_response': {}}
+    mapping = get_yaml_test_data('nj_demo_mapper')
+    pytest.test_data = {'dynamic_vars': generate_vars(), 'api_data_with_response': {}, 'demo_mapper': mapping}
 
 
 def after_scenario_tasks(request, scenario, es_index):
@@ -63,14 +65,16 @@ def update_elasticsearch_report(es_index, request):
 def es_scenario_report_data(request):
     env = settings.ENV.lower()
     time_str = datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
+    project_name = settings.PROJECT['project_name']
 
     try:
         if pytest.regression_id is None: pytest.regression_id = {'regression_id': f'{env}_{time_str}'}
     except Exception as e:
-        pytest.regression_id = {'regression_id': f'{env}_{time_str}', 'env': env}
+        pytest.regression_id = {'regression_id': f'{env}_{time_str}', 'env': env, 'project': project_name}
 
     scenario_report = {**request.node.__scenario_report__.serialize(),
-                       **{'status': 'pass'}, **pytest.regression_id, **{'@timestamp': datetime.now().isoformat()}}
+                       **{'status': 'pass'}, **pytest.regression_id, **{'@timestamp': datetime.now().isoformat()},
+                       'jira_links': get_jira_links()}
 
     if scenario_failed(request):
         pytest.test_data.pop('dynamic_vars')
@@ -120,3 +124,8 @@ def prepare_report(config, project_name):
     time_str = datetime.now().strftime('%Y-%m-%dT%H-%M-%S')
     config.option.htmlpath = f'{report_path}/{time_str}-{project_name}-QAReport.html'
     config.option.self_contained_html = True
+
+
+def get_jira_links():
+    jira_links = [f"{settings.JIRA_BASE_URL}/{tag.split('_')[-1]}" for tag in pytest.scenario_tags if 'jira_' in tag]
+    return '\n'.join(jira_links)

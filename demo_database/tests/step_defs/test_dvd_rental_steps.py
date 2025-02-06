@@ -1,6 +1,6 @@
 import settings
-from dvdrental.utils.queries import DBQueries
-from dvdrental.tests.step_defs.common_imports import *
+from demo_database.utils.queries import DBQueries
+from demo_database.tests.step_defs.common_imports import *
 import os
 from pytest_bdd import scenarios
 

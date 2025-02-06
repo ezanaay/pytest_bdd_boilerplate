@@ -1,14 +1,11 @@
 import settings
-from common_code.shared_steps.common_conf_helpers import after_scenario_tasks, prepare_report, before_scenario_tasks
+from common_code.shared_steps.common_conf_helpers import prepare_report, after_scenario_tasks, before_scenario_tasks
+from demo_api.tests.step_defs.common_imports import *
 import pytest
-from lib.api_util.data_helper import search_dict
 
-from lib.log import get_logger as log
+es_index = 'pytestbdd-qa-logs-demo_api'
 
-logger = log(__name__, settings.LOG_LEVEL, settings.CONSOLE_OUT)
-
-# elasticsearch index
-es_index = 'pytestbdd-qa-logs-dvdrental'
+logger = log.get_logger(__name__, settings.LOG_LEVEL, settings.CONSOLE_OUT)
 
 pytest_plugins = (
     "config.project",
@@ -32,11 +29,6 @@ def pytest_bdd_before_scenario(scenario):
 
 
 def pytest_bdd_after_scenario(request, feature, scenario):
-    # close db session if there is any
-    db_session = search_dict('db_session', pytest.test_data)
-    if db_session:
-        db_session.close()
-        logger.info("DB Session is closed.")
     after_scenario_tasks(request, scenario, es_index)
 
 

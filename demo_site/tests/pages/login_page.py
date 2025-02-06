@@ -11,13 +11,16 @@ class LoginPage(BasePage):
         super().__init__(driver)
 
     def enter_username(self, email):
-        self.find_element(*self.locator.username).send_keys(email)
+        self.find_element(*self.locator.user_id).send_keys(email)
+
+    def click_next_button(self):
+        self.find_element(*self.locator.next).click()
 
     def enter_password(self, password):
         self.find_element(*self.locator.password).send_keys(password)
 
     def click_login_button(self):
-        self.find_element(*self.locator.submit).click()
+        self.find_element(*self.locator.sign_in).click()
 
     def login(self, user, password):
         print(user)

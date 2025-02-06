@@ -1,4 +1,4 @@
-from dvdrental.tests.step_defs.common_imports import *
+from demo_database.tests.step_defs.common_imports import *
 from settings import LOG_LEVEL, CONSOLE_OUT
 logger = log(__name__, LOG_LEVEL, CONSOLE_OUT)
 

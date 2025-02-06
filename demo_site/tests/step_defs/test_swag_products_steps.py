@@ -3,9 +3,9 @@ import json
 from common_imports import *
 from pytest_bdd import scenarios, scenario, given, then, parsers, when
 
-from demosite.tests.pages.cart_page import CartPage
-from demosite.tests.pages.inventory_page import InventoryPage
-from demosite.tests.pages.login_page import LoginPage
+from demo_site.tests.pages.cart_page import CartPage
+from demo_site.tests.pages.inventory_page import InventoryPage
+from demo_site.tests.pages.login_page import LoginPage
 
 scenarios(os.path.join(os.path.dirname(__file__), '../features/swag_products.feature'))
 
@@ -15,6 +15,7 @@ def login(browser, user_type):
     LoginPage(browser).login(user_type, 'secret_sauce')
 
 
+@given(parsers.parse("the user should be on {page_name} page"))
 @when(parsers.parse("the user should be on {page_name} page"))
 @then(parsers.parse("the user should be on {page_name} page"))
 def verify_page(browser, page_name):

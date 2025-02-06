@@ -2,7 +2,7 @@ import json
 
 import settings
 from common_code.shared_steps.shared_steps_helpers import is_str_dict_or_list
-from countries.tests.step_defs.common_imports import *
+from demo_api.tests.step_defs.common_imports import *
 import os
 from pytest_bdd import scenarios, when
 

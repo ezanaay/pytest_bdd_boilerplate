@@ -21,6 +21,7 @@ GLOBAL_DB_SESSION = []
 LOG_LEVEL = 'INFO'
 CONSOLE_OUT = False
 
+
 with open(f"{CONFIG_ROOT}/setup.yml", 'r') as file:
     config = yaml.safe_load(file)
 
@@ -47,7 +48,7 @@ CONFIG_DATA = config[project_name][ENV]
 log_env_vars = CONFIG_DATA['log_setting']
 LOG_LEVEL = log_env_vars['level'] if 'level' in log_env_vars else LOG_LEVEL
 CONSOLE_OUT = log_env_vars['console_out'] if 'console_out' in log_env_vars else CONSOLE_OUT
-
+JIRA_BASE_URL = CONFIG_DATA['jira_url']
 logger = log(__name__, LOG_LEVEL, CONSOLE_OUT)
 
 logger.info("Program started")

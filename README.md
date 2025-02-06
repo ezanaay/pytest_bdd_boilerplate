@@ -1,6 +1,6 @@
 # PyTest BDD Boilerplate
 
-This project contains initial setup for pytest-bdd automation for api, database and UI tests.
+This project contains initial setup for pytest-bdd automation for desktop, api, database and UI tests.
 
 ## Python Installation (Windows)
 
@@ -45,13 +45,13 @@ poetry install
 
 ## Database Testing Setup
 
-The database used in the this project is a public sample dvdrental postgres database.
+The database used in this project is a public sample demo_database postgres database.
 The sample database is obtained
 from https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/
 
 ### Setting up test database on your local
 
-The sample database .tar file is available in `dvdrental` folder.
+The sample database .tar file is available in `demo_database` folder.
 
 1. Download and install pgAdmin from https://www.pgadmin.org/download/
 #### To connect to PostgreSQL database server
@@ -59,29 +59,33 @@ The sample database .tar file is available in `dvdrental` folder.
 3. Enter the server name such as Local, and click the Connection tab
 4. Enter the host (localhost if the server is on your local) and password for the postgres user and click the Save button
 5. Click on the Servers node to expand the server. By default, PostgreSQL has a database named postgres
-#### To load dvdrental database
+#### To load demo_database database
 6. Right-click the Databases and select the Create > Database… menu option.
-7. Enter the database name dvdrental and click the Save button.
+7. Enter the database name demo_database and click the Save button.
    You’ll see the new empty database created under the Databases node.
-8. Right-click on the dvdrental database and choose the Restore… menu item to restore the database from the
-   dvdrental.tar database file available in the project.
+8. Right-click on the demo_database database and choose the Restore… menu item to restore the database from the
+   demo_database.tar database file available in the project.
 9. Enter the path to the sample database tar file and click the Restore button.
-10. Open the dvdrental database from the object browser panel, you will find tables in the public schema and other
+10. Open the demo_database database from the object browser panel, you will find tables in the public schema and other
    database objects.
 
 For more info refer to https://www.postgresqltutorial.com/postgresql-getting-started/load-postgresql-sample-database/
 
 ## API Testing Setup
 
-Api tests are written for a publicly available rest api site https://restcountries.com/#endpoints-name
+Api tests are written for a publicly available rest api site https://restdemo_api.com/#endpoints-name
 
 ## UI Testing Setup
 
 UI tests are written for a publicly available sample website https://www.saucedemo.com/
 
-Before you run UI tests in `demosite` project folder, 
+Before you run UI tests in `demo_site` project folder, 
 - download chrome driver compatible to your Chrome browser from https://googlechromelabs.github.io/chrome-for-testing/ 
 - unzip the file and save the driver application file in `lib/web_drivers`
+
+## Desktop Testing Setup
+
+Desktop tests are written for the built-in calculator app on windows. 
 
 ## ElasticSearch Basic Setup (Optional)
 
@@ -93,7 +97,7 @@ To integrate elasticsearch reporting and analytics, we have to first setup elast
 ### Create API Key
 
 1. Create a free elasticsearch trial account if you don't have one yet
-2. Login to your account and go to Stack Management
+2. Login to your account, create an Observability project and go to Stack Management
 3. Click API Keys menu item under 'Security'
 4. Click on 'Create API key' button to create an api key (Type: Personal API key) and copy and save the key
 
@@ -109,8 +113,8 @@ To integrate elasticsearch reporting and analytics, we have to first setup elast
 
 10. Replace `es_index` variable in {project_name}/tests/conftest.py:
 
-- for `countries` project `pytestbdd-qa-logs-countries`
-- for `dvdrental` project `pytestbdd-qa-logs-dvdrental`
+- for `demo_api` project `pytestbdd-qa-logs-demo_api`
+- for `demo_database` project `pytestbdd-qa-logs-demo_database`
 
 ### Create Dataview
 
@@ -143,7 +147,7 @@ in https://www.elastic.co/guide/en/kibana/current/create-a-dashboard-of-panels-w
 
 where:
 
-- project_name in this example `countries`, `dvdrental` or `demosite`
+- project_name in this example `demo_api`, `demo_database`, `demo_desk` or `demo_site`
 - qa_environment is QA1 or QA2
 - encryption_key is key generated in step 1
 
@@ -162,22 +166,22 @@ First, point your terminal to the project root path.
 
 Run the following command to execute project test cases.
 
-- dvdrental testcases on test environment QA1
+- demo_database testcases on test environment QA1
 
 ```commandline
-poetry run pytest dvdrental --env QA1 
+poetry run pytest demo_database --env QA1 
 ```
 
-- countries testcases
+- demo_api testcases
 
 ```commandline
-poetry run pytest countries 
+poetry run pytest demo_api 
 ```
 
-- to run a specific test by tag such as 'test_case_id_1' tag in countries tests
+- to run a specific test by tag such as 'test_case_id_1' tag in demo_api tests
 
 ```commandline
-poetry run pytest countries -k "test_case_id_1" 
+poetry run pytest demo_api -k "test_case_id_1" 
 ```
 
 ## To Debug Tests
@@ -186,7 +190,7 @@ poetry run pytest countries -k "test_case_id_1"
 2. Run the commandline with --pdb switch. For example to debug `test_case_id_1` test case
 
 ```commandline
-poetry run pytest countries -k "test_case_id_1" --pdb
+poetry run pytest demo_api -k "test_case_id_1" --pdb
 ```
 
 NOTE: Don't forget to remove `breakpoint()` after you complete your debugging.
@@ -201,12 +205,12 @@ _For scenarios and scenario outlines_ (test_case_id_1, test_case_id_2, ...).
 _For scenario outline examples_ (test_case_id_2_1, test_case_id_2_2, ...)
 
 ```
-poetry run pytest countries -k "assign_unique_test_id"
+poetry run pytest demo_api -k "assign_unique_test_id"
 ```
 
 ## Logs and Reports
 
-NOTE: `project_name` is either `countries`, `demosite` or `dvdrental`
+NOTE: `project_name` is either `demo_api`, `demo_site`, `demo_desk` or `demo_database`
 
 ### Logs
 

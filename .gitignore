@@ -1,5 +1,5 @@
 proj_secrets.py
 logs/*
-countries/reports/*
-dvdrental/reports/*
+demo_api/reports/*
+demo_database/reports/*
 env311

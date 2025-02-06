@@ -1,9 +1,15 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from stere import Stere
+from splinter import Browser
+
 import settings
 from common_code.shared_steps.common_conf_helpers import prepare_report, after_scenario_tasks, before_scenario_tasks
-from countries.tests.step_defs.common_imports import *
 import pytest
+import lib.log as log
+from demo_site.tests.pages.base_page import BasePage
 
-es_index = 'pytestbdd-qa-logs-countries'
+es_index = 'pytestbdd-qa-logs-demo_site'
 
 logger = log.get_logger(__name__, settings.LOG_LEVEL, settings.CONSOLE_OUT)
 
@@ -40,3 +46,14 @@ def pytest_configure(config):
 @pytest.fixture
 def pytestbdd_strict_gherkin():
     return False
+
+
+@pytest.fixture
+def browser():
+    chrome_service = Service(executable_path=f'{settings.WEB_DRIVER_ROOT}/chromedriver.exe')
+    driver = webdriver.Chrome(service=chrome_service)
+    driver.get(settings.CONFIG_DATA['base_url'])
+    browser = BasePage(driver, settings.CONFIG_DATA['base_url'])
+    yield browser
+    driver.close()
+    driver.quit()

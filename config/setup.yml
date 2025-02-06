@@ -5,7 +5,7 @@ elasticsearch: &es
 log_setting: &log
   level: INFO
   console_out: False
-countries: # same as project directory name
+demo_api: # same as project directory name
   QA1:
     # https://restcountries.com/#api-endpoints-using-this-project
     countries_api:
@@ -14,6 +14,8 @@ countries: # same as project directory name
       <<: *log
     elasticsearch:
       <<: *es
+      turn_on: False
+    jira_url: 'https://company.com/demo_api_project'
   QA2:
     # https://restcountries.com/#api-endpoints-using-this-project
     countries_api:
@@ -22,7 +24,8 @@ countries: # same as project directory name
       <<: *log
     elasticsearch:
       <<: *es
-dvdrental: # same as project directory name
+    jira_url: 'https://company.com/demo_api_project'
+demo_database: # same as project directory name
   QA1:
     dvdrental_db:
       db_name: dvdrental
@@ -33,7 +36,9 @@ dvdrental: # same as project directory name
       <<: *log
     elasticsearch:
       <<: *es
-demosite:
+      turn_on: False
+    jira_url: 'https://company.com/demo_db_project'
+demo_site:
   QA1:
     base_url: https://www.saucedemo.com/
     browser: chrome
@@ -41,3 +46,23 @@ demosite:
       <<: *log
     elasticsearch:
       <<: *es
+      turn_on: False
+    jira_url: 'https://company.com/demo_site_project'
+demo_desk:
+  QA1:
+    base_url: https://www.saucedemo.com/
+    browser: chrome
+    log_setting:
+      <<: *log
+    elasticsearch:
+      <<: *es
+    jira_url: 'https://company.com/demo_desk_project'
+demo_mobile:
+  QA1:
+    base_url: https://www.saucedemo.com/
+    browser: chrome
+    log_setting:
+      <<: *log
+    elasticsearch:
+      <<: *es
+    jira_url: 'https://company.com/demo_mobile_project'
