@@ -90,6 +90,7 @@ Desktop tests are written for the built-in calculator app on windows.
 ## Mobile Testing Setup
 
 Mobile tests are written for a publicly available saucelabs sample mobile app for iOS (https://github.com/saucelabs/sample-app-mobile). 
+
 Pre-requisite: Appium installation (https://appium.io/docs/en/2.0/quickstart/install/)
 
 
