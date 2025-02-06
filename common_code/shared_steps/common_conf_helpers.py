@@ -26,7 +26,7 @@ def before_scenario_tasks(scenario):
     pytest.scenario_tags = [tag.strip() for tag in scenario.tags]
     logger.info(f"Started scenario {scenario.name}.")
     if 'skip' in pytest.scenario_tags: pytest.skip(reason=f"{scenario.name} Marked with Skip tag")
-    mapping = get_yaml_test_data('nj_demo_mapper')
+    mapping = get_yaml_test_data('co_demo_mapper')
     pytest.test_data = {'dynamic_vars': generate_vars(), 'api_data_with_response': {}, 'demo_mapper': mapping}
 
 

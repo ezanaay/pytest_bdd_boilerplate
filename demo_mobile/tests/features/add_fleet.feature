@@ -2,7 +2,7 @@
 Feature: Fleet Finder
   All fleet options should be available on products page and adding a fleet to cart should make the chosen fleet option available in Carts screen.
 
-  @test_case_id_1 @jira_NJ101 @cart
+  @test_case_id_1 @jira_co101 @cart
   Scenario: Verify Fleet option selection
     Given I start "company Fleet" mobile app
     And I login as a company_user
@@ -10,7 +10,7 @@ Feature: Fleet Finder
     When I add "Large Jets" to cart
     Then "Large Jets" should be available in the cart
 
-  @test_case_id_2 @jira_NJ110 @products
+  @test_case_id_2 @jira_co110 @products
   Scenario: Verify Fleet options display
     Given I start "company Fleet" mobile app
     And I login as a company_user

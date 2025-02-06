@@ -1,6 +1,6 @@
 # PyTest BDD Boilerplate
 
-This project contains initial setup for pytest-bdd automation for desktop, api, database and UI tests.
+This project contains initial setup for pytest-bdd automation for desktop, mobile, api, database and UI tests.
 
 ## Python Installation (Windows)
 
@@ -87,6 +87,12 @@ Before you run UI tests in `demo_site` project folder,
 
 Desktop tests are written for the built-in calculator app on windows. 
 
+## Mobile Testing Setup
+
+Mobile tests are written for a publicly available saucelabs sample mobile app for iOS (https://github.com/saucelabs/sample-app-mobile). 
+Pre-requisite: Appium installation (https://appium.io/docs/en/2.0/quickstart/install/)
+
+
 ## ElasticSearch Basic Setup (Optional)
 
 To integrate elasticsearch reporting and analytics, we have to first setup elasticsearch.
@@ -147,7 +153,7 @@ in https://www.elastic.co/guide/en/kibana/current/create-a-dashboard-of-panels-w
 
 where:
 
-- project_name in this example `demo_api`, `demo_database`, `demo_desk` or `demo_site`
+- project_name in this example `demo_api`, `demo_database`, `demo_desk`, `demo_mobile` or `demo_site`
 - qa_environment is QA1 or QA2
 - encryption_key is key generated in step 1
 
@@ -210,7 +216,7 @@ poetry run pytest demo_api -k "assign_unique_test_id"
 
 ## Logs and Reports
 
-NOTE: `project_name` is either `demo_api`, `demo_site`, `demo_desk` or `demo_database`
+NOTE: `project_name` is either `demo_api`, `demo_site`, `demo_desk`, `demo_mobile` or `demo_database`
 
 ### Logs
 

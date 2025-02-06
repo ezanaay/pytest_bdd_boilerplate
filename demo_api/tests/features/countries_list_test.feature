@@ -1,7 +1,7 @@
 # Created by ezana at 1/25/2024
 Feature: Countries REST api tests
 
-  @test_case_id_1 @jira_NJ301
+  @test_case_id_1 @jira_co301
   Scenario Outline: Validate get countries api
     Given a <query_name> request with params <params> is sent to countries_api
     Then the response status code for <query_name> is 200
