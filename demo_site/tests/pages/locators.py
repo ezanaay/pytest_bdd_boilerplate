@@ -11,11 +11,11 @@ class InventoryLocators():
     shopping_cart = ('class name', 'shopping_cart_link')
 
 
-# class LoginPageLocators():
-#     username = ('id', 'user-name')
-#     password = ('id', 'password')
-#     submit = ('id', 'login-button')
-#     error_message = ('id', 'message_error')
+class LoginPageLocators():
+    username = ('id', 'user-name')
+    password = ('id', 'password')
+    submit = ('id', 'login-button')
+    error_message = ('id', 'message_error')
 
 
 class CartLocators():
