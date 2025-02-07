@@ -33,9 +33,3 @@ class LoginPageLocators():
 
 class NavigatorLocators():
     home = ('href', '#/home')
-    home = ('href', '#/home')
-    home = ('href', '#/home')
-    home = ('href', '#/home')
-    home = ('href', '#/home')
-    home = ('href', '#/home')
-    home = ('href', '#/home')
